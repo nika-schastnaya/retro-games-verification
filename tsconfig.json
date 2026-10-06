@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "paths": {
+      "@framework/*": ["./framework/*"],
+      "@pages/*": ["./pages/*"],
+      "@fixtures/*": ["./fixtures/*"],
+      "@services/*": ["./services/*"]
+    }
+  },
+  "include": [
+    "tests/**/*.ts",
+    "framework/**/*.ts",
+    "pages/**/*.ts",
+    "fixtures/**/*.ts",
+    "services/**/*.ts",
+    "playwright.config.ts"
+  ]
+}
