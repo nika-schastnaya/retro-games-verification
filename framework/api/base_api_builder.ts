@@ -1,4 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
+import { URL } from "url";
 
 export abstract class BaseApiBuilder {
   constructor(
