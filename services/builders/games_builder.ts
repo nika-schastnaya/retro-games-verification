@@ -24,9 +24,32 @@ export class GamesBuilderApi extends BaseApiBuilder {
     this.searchUrl.searchParams.set("limit", limit.toString());
     return this;
   }
-  //search=&genre=&yearFrom=&yearTo=&multiplayer=
 
-  async getAllGames() {
+  withSearch(input: string) {
+    this.searchUrl.searchParams.set("search", input);
+    return this;
+  }
+
+  withGenre(genre: string) {
+    this.searchUrl.searchParams.set("genre", genre);
+    return this;
+  }
+
+  withYearFrom(year: string) {
+    this.searchUrl.searchParams.set("yearFrom", year);
+    return this;
+  }
+
+  withYearTo(year: string) {
+    this.searchUrl.searchParams.set("yearTo", year);
+    return this;
+  }
+
+  withMultiplayer(multiplayer: boolean) {
+    this.searchUrl.searchParams.set("multiplayer", multiplayer.toString());
+  }
+
+  async sendGetGames() {
     const response = await this.request.get(`${this.searchUrl}`, {
       headers: this.headers,
     });
