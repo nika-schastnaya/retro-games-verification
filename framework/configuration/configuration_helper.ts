@@ -13,6 +13,8 @@ const envSchema = Joi.object({
   MAX_TEST_RUNTIME: Joi.number().integer().min(1000).required(),
   BASE_URL: Joi.string().uri().required(),
   API_BASE_URL: Joi.string().uri().required(),
+  ADMIN_EMAIL: Joi.string().email().required(),
+  ADMIN_PASSWORD: Joi.string().required(),
 }).unknown(true);
 
 const envVars = envSchema.validate(process.env, {
@@ -31,4 +33,6 @@ export class Config {
   static readonly MAX_TEST_RUNTIME: number = envVars.value.MAX_TEST_RUNTIME;
   static readonly BASE_URL: string = envVars.value.BASE_URL;
   static readonly API_BASE_URL: string = envVars.value.API_BASE_URL;
+  static readonly ADMIN_EMAIL: string = envVars.value.ADMIN_EMAIL;
+  static readonly ADMIN_PASSWORD: string = envVars.value.ADMIN_PASSWORD;
 }
